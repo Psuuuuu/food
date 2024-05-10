@@ -27,4 +27,4 @@ If you placed your JSP file in the root directory of Tomcat's webapps folder, yo
 ```arudino
 sudo systemctl stop tomcat9
 ```
-###Remember to replace yourjspfilename.jsp with the actual filename of your JSP file.
+### Remember to replace yourjspfilename.jsp with the actual filename of your JSP file.
