@@ -1,0 +1,28 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Check Perfect Number</title>
+</head>
+<body>
+    <h2>Check Perfect Number</h2>
+    
+    <%!
+        boolean checkPerfectNumber(int num) {
+            int sum = 0;
+            for (int i = 1; i < num; i++) {
+                if (num % i == 0) {
+                    sum += i;
+                }
+            }
+            return sum == num;
+        }
+    %>
+    
+    <%
+        int number = Integer.parseInt(request.getParameter("number"));
+        boolean isPerfect = checkPerfectNumber(number);
+    %>
+    
+    <p>Number <%= number %> is <%= isPerfect ? "a Perfect number" : "not a Perfect number" %>.</p>
+</body>
+</html>

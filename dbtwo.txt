@@ -1,0 +1,37 @@
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+
+public class ProjectManager extends JFrame {
+    private JTable table;
+    private JScrollPane scrollPane;
+
+    public ProjectManager() {
+        setTitle("Project Details");
+        setSize(600, 400);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+        // Creating the table model
+        DefaultTableModel model = new DefaultTableModel();
+        table = new JTable(model);
+        scrollPane = new JScrollPane(table);
+        add(scrollPane, BorderLayout.CENTER);
+
+        // Add columns to the table model
+        model.addColumn("Project ID");
+        model.addColumn("Project Name");
+        model.addColumn("Project Description");
+        model.addColumn("Project Status");
+
+        // Add sample data to the table model
+        model.addRow(new Object[]{"1", "Project A", "Description of Project A", "Active"});
+        model.addRow(new Object[]{"2", "Project B", "Description of Project B", "Inactive"});
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            ProjectManager projectManager = new ProjectManager();
+            projectManager.setVisible(true); // Set the frame visible after creating the instance
+        });
+    }
+}
